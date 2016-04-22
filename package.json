@@ -4,7 +4,8 @@
   "description": "eslint es5 rules",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint *.js rules/*.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,11 @@
   "bugs": {
     "url": "https://github.com/codekirei/eslint-config-kirei-es5/issues"
   },
-  "homepage": "https://github.com/codekirei/eslint-config-kirei-es5#readme"
+  "homepage": "https://github.com/codekirei/eslint-config-kirei-es5#readme",
+  "dependencies": {
+    "eslint": "2.8.0"
+  },
+  "devDependencies": {
+    "mocha": "2.4.5"
+  }
 }
