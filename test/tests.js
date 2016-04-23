@@ -66,8 +66,7 @@ exports['eslint-config-kirei-es5'] = {
   },
 
   'all es5 rules are configured': () => {
-    const unconfiguredRules = diff(ESLintRules, [].concat(myRules, es6Rules))
-    assert.deepEqual(unconfiguredRules, [])
+    assert.deepEqual(diff(ESLintRules, [].concat(myRules, es6Rules)), [])
   },
 
 }
