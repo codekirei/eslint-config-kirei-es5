@@ -27,6 +27,7 @@
     "eslint": "2.8.0"
   },
   "devDependencies": {
+    "lodash.difference": "4.2.0",
     "mocha": "2.4.5"
   }
 }
