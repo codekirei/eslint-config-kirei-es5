@@ -69,4 +69,8 @@ exports['eslint-config-kirei-es5'] = {
     assert.deepEqual(diff(ESLintRules, [].concat(myRules, es6Rules)), [])
   },
 
+  'only es5 rules are configured': () => {
+    assert.deepEqual(diff(myRules, diff(ESLintRules, es6Rules)), [])
+  },
+
 }
