@@ -8,5 +8,5 @@ module.exports = {
     './rules/strict-mode.js',
     './rules/stylistic-issues.js',
     './rules/variables.js',
-  ],
+  ].map(require.resolve),
 }
