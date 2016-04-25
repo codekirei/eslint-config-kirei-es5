@@ -2,11 +2,11 @@
 
 module.exports = {
   extends: [
-    './rules/best-practices.js',
-    './rules/node.js',
-    './rules/possible-errors.js',
-    './rules/strict-mode.js',
-    './rules/stylistic-issues.js',
-    './rules/variables.js',
+    './rules/best-practices',
+    './rules/node',
+    './rules/possible-errors',
+    './rules/strict-mode',
+    './rules/stylistic-issues',
+    './rules/variables',
   ].map(require.resolve),
 }
