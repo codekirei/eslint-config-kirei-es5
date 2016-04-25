@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-kirei-es5",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "eslint es5 rules",
   "main": "index.js",
   "scripts": {
