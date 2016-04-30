@@ -11,7 +11,6 @@ const eslint = require('eslint')
 
 // local modules ---------------------------------------------------------------
 
-// rules
 const bestPractices = require('../rules/best-practices').rules
 const node = require('../rules/node').rules
 const possibleErrors = require('../rules/possible-errors').rules
