@@ -11,8 +11,6 @@ const eslint = require('eslint')
 
 // local modules ---------------------------------------------------------------
 
-const config = require('..')
-
 // rules
 const bestPractices = require('../rules/best-practices').rules
 const node = require('../rules/node').rules
@@ -75,6 +73,14 @@ exports['eslint-config-kirei-es5'] = {
 
   'only es5 rules are configured': () => {
     assert.deepEqual(diff(localRules, diff(eslintRules, es6Rules)), [])
+  },
+
+  'config does not throw': () => {
+    const linter = new eslint.CLIEngine({
+      useEslintrc: false,
+      configFile: './index.js',
+    })
+    assert.doesNotThrow(() => linter.executeOnText(''))
   },
 
 }
