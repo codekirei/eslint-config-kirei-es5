@@ -2,29 +2,40 @@
 
 // node modules ----------------------------------------------------------------
 
-const fs = require('fs')
-const path = require('path')
 const assert = require('assert')
 
 // npm modules -----------------------------------------------------------------
 
 const diff = require('lodash.difference')
+const eslint = require('eslint')
 
 // local modules ---------------------------------------------------------------
 
-const myRules = Object.keys(
-  Object.assign(
-    {},
-    require('../rules/best-practices').rules,
-    require('../rules/node').rules,
-    require('../rules/possible-errors').rules,
-    require('../rules/strict-mode').rules,
-    require('../rules/stylistic-issues').rules,
-    require('../rules/variables').rules
-  )
-)
+const config = require('..')
+
+// rules
+const bestPractices = require('../rules/best-practices').rules
+const node = require('../rules/node').rules
+const possibleErrors = require('../rules/possible-errors').rules
+const strictMode = require('../rules/strict-mode').rules
+const stylisticIssues = require('../rules/stylistic-issues').rules
+const variables = require('../rules/variables').rules
 
 // setup -----------------------------------------------------------------------
+
+const eslintRules = Object.keys(eslint.linter.defaults().rules)
+
+const localRules = Object.keys(
+  Object.assign(
+    {},
+    bestPractices,
+    node,
+    possibleErrors,
+    strictMode,
+    stylisticIssues,
+    variables
+  )
+)
 
 const es6Rules = [
   'arrow-body-style',
@@ -54,23 +65,16 @@ const es6Rules = [
   'yield-star-spacing',
 ]
 
-let ESLintRules
-
 // cases -----------------------------------------------------------------------
 
 exports['eslint-config-kirei-es5'] = {
 
-  'before': () => {
-    ESLintRules = fs.readdirSync('./node_modules/eslint/lib/rules')
-      .map(rule => path.basename(rule, '.js'))
-  },
-
   'all es5 rules are configured': () => {
-    assert.deepEqual(diff(ESLintRules, [].concat(myRules, es6Rules)), [])
+    assert.deepEqual(diff(eslintRules, [].concat(localRules, es6Rules)), [])
   },
 
   'only es5 rules are configured': () => {
-    assert.deepEqual(diff(myRules, diff(ESLintRules, es6Rules)), [])
+    assert.deepEqual(diff(localRules, diff(eslintRules, es6Rules)), [])
   },
 
 }
