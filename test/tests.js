@@ -11,28 +11,12 @@ const eslint = require('eslint')
 
 // local modules ---------------------------------------------------------------
 
-const bestPractices = require('../rules/best-practices').rules
-const node = require('../rules/node').rules
-const possibleErrors = require('../rules/possible-errors').rules
-const strictMode = require('../rules/strict-mode').rules
-const stylisticIssues = require('../rules/stylistic-issues').rules
-const variables = require('../rules/variables').rules
+const localConf = require('..')
 
 // setup -----------------------------------------------------------------------
 
-const eslintRules = Object.keys(eslint.linter.defaults().rules)
-
-const localRules = Object.keys(
-  Object.assign(
-    {},
-    bestPractices,
-    node,
-    possibleErrors,
-    strictMode,
-    stylisticIssues,
-    variables
-  )
-)
+const allRules = Object.keys(eslint.linter.defaults().rules)
+const es5Rules = Object.keys(localConf.rules)
 
 const es6Rules = [
   'arrow-body-style',
@@ -67,11 +51,11 @@ const es6Rules = [
 exports['eslint-config-kirei-es5'] = {
 
   'all es5 rules are configured': () => {
-    assert.deepEqual(diff(eslintRules, [].concat(localRules, es6Rules)), [])
+    assert.deepEqual(diff(allRules, [].concat(es5Rules, es6Rules)), [])
   },
 
   'only es5 rules are configured': () => {
-    assert.deepEqual(diff(localRules, diff(eslintRules, es6Rules)), [])
+    assert.deepEqual(diff(es5Rules, diff(allRules, es6Rules)), [])
   },
 
   'config does not throw': () => {
