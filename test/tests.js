@@ -1,50 +1,23 @@
 'use strict'
 
-// node modules ----------------------------------------------------------------
+// modules ---------------------------------------------------------------------
 
+// node
 const assert = require('assert')
 
-// npm modules -----------------------------------------------------------------
-
+// npm
 const diff = require('lodash.difference')
 const eslint = require('eslint')
+const es6Conf = require('eslint-config-kirei-es6')
 
-// local modules ---------------------------------------------------------------
-
-const localConf = require('..')
+// local
+const es5Conf = require('..')
 
 // setup -----------------------------------------------------------------------
 
 const allRules = Object.keys(eslint.linter.defaults().rules)
-const es5Rules = Object.keys(localConf.rules)
-
-const es6Rules = [
-  'arrow-body-style',
-  'arrow-parens',
-  'arrow-spacing',
-  'constructor-super',
-  'generator-star-spacing',
-  'no-class-assign',
-  'no-confusing-arrow',
-  'no-const-assign',
-  'no-dupe-class-members',
-  'no-duplicate-imports',
-  'no-new-symbol',
-  'no-restricted-imports',
-  'no-this-before-super',
-  'no-useless-constructor',
-  'no-var',
-  'object-shorthand',
-  'prefer-arrow-callback',
-  'prefer-const',
-  'prefer-reflect',
-  'prefer-rest-params',
-  'prefer-spread',
-  'prefer-template',
-  'require-yield',
-  'template-curly-spacing',
-  'yield-star-spacing',
-]
+const es5Rules = Object.keys(es5Conf.rules)
+const es6Rules = Object.keys(es6Conf.es6Rules)
 
 // cases -----------------------------------------------------------------------
 
