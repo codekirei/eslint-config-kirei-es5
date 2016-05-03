@@ -7,8 +7,8 @@ const assert = require('assert')
 
 // npm
 const diff = require('lodash.difference')
-const eslint = require('eslint')
 const es6Conf = require('eslint-config-kirei-es6')
+const eslint = require('eslint')
 
 // local
 const es5Conf = require('..')
@@ -23,11 +23,11 @@ const es6Rules = Object.keys(es6Conf.es6Rules)
 
 exports['eslint-config-kirei-es5'] = {
 
-  'all es5 rules are configured': () => {
+  'all ES5 rules are configured': () => {
     assert.deepEqual(diff(allRules, [].concat(es5Rules, es6Rules)), [])
   },
 
-  'only es5 rules are configured': () => {
+  'only ES5 rules are configured': () => {
     assert.deepEqual(diff(es5Rules, diff(allRules, es6Rules)), [])
   },
 
