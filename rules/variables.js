@@ -11,6 +11,9 @@ module.exports = {
   'no-undef': 2,
   'no-undef-init': 0,
   'no-undefined': 0,
-  'no-unused-vars': [2, { vars: 'local', args: 'after-used' }],
+  'no-unused-vars': [2, {
+    vars: 'local',
+    args: 'after-used',
+  }],
   'no-use-before-define': 2,
 }

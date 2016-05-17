@@ -36,7 +36,10 @@ module.exports = {
   'no-implied-eval': 2,
   'no-invalid-this': 0,
   'no-iterator': 2,
-  'no-labels': [2, { allowLoop: false, allowSwitch: false }],
+  'no-labels': [2, {
+    allowLoop: false,
+    allowSwitch: false,
+  }],
   'no-lone-blocks': 2,
   'no-loop-func': 2,
   'no-magic-numbers': [0, {

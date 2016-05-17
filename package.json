@@ -24,11 +24,11 @@
   },
   "homepage": "https://github.com/codekirei/eslint-config-kirei-es5#readme",
   "dependencies": {
-    "eslint": "2.9.0"
+    "eslint": "2.10.2"
   },
   "devDependencies": {
     "eslint-config-kirei-es6": "0.2.0",
-    "lodash.difference": "4.2.0",
+    "lodash.difference": "4.3.0",
     "mocha": "2.4.5"
   }
 }
